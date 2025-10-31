@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 from db.database import base
 
 
-class StroyJob(base):
+class StoryJob(base):
     __tablename__= "Story_Jobs"
 
     id=Column(Integer,primary_key=True,index=True)
