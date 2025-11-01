@@ -2,24 +2,24 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-
 from core.config import settings
 
-
-engine=create_engine(
+engine = create_engine(
     settings.DATABASE_URL
 )
 
-sessionlocal=sessionmaker(autocommit=False,autoflush=False,bind=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+Base = declarative_base()
 
-base=declarative_base()
 
 def get_db():
-    db=sessionlocal()
+    db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
-def create_table():
-    base.metadata.create_all(bind=engine)
+
+
+def create_tables():
+    Base.metadata.create_all(bind=engine)

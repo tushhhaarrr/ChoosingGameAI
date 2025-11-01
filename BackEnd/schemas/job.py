@@ -4,21 +4,19 @@ from pydantic import BaseModel
 
 
 class StoryJobBase(BaseModel):
-    theme:set
+    theme: str
 
-class storyJobResponse(BaseModel):
-    theme:str
 
-class StoryJobresponse(BaseModel):
-    job_id:int 
-    status:str
-    create_at:datetime
-    story_id:Optional[int]=None
-    completed_at:Optional[datetime]=None
-    error:Optional[str]=None
+class StoryJobResponse(BaseModel):
+    job_id: str
+    status: str
+    created_at: datetime
+    story_id: Optional[int] = None
+    completed_at: Optional[datetime] = None
+    error: Optional[str] = None
 
     class Config:
-        from_attributes=True
+        from_attributes = True
 
 
 class StoryJobCreate(StoryJobBase):

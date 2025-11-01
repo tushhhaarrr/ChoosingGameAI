@@ -1,39 +1,44 @@
-from typing import List,Optional,Dict
-
+from typing import List, Optional, Dict
 from datetime import datetime
 from pydantic import BaseModel
 
-class StoryOptionSchema(BaseModel):
-    text:str
-    node_id:Optional[int]=None
+
+class StoryOptionsSchema(BaseModel):
+    text: str
+    node_id: Optional[int] = None
+
 
 class StoryNodeBase(BaseModel):
-    content=str
-    is_ending:bool=False
-    is_winning_ending:bool=False
+    content: str
+    is_ending: bool = False
+    is_winning_ending: bool = False
 
-class CompleteStoryNOdeResponse(StoryNodeBase):
-    id:int 
-    options:List[StoryOptionSchema]=[]
+
+class CompleteStoryNodeResponse(StoryNodeBase):
+    id: int
+    options: List[StoryOptionsSchema] = []
 
     class Config:
-        from_attribute=True
+        from_attributes = True
 
 
 class StoryBase(BaseModel):
-    title:str
-    session_id:Optional[str]=None
+    title: str
+    session_id: Optional[str] = None
+
     class Config:
-        from_attributes=True
+        from_attributes = True
+
+
 class CreateStoryRequest(BaseModel):
-    theme:str
+    theme: str
+
 
 class CompleteStoryResponse(StoryBase):
-    id:int
-    created_at:datetime
-    root_node:   CompleteStoryNOdeResponse
-    all_nodes:Dict[int,CompleteStoryNOdeResponse]
-    
+    id: int
+    created_at: datetime
+    root_node: CompleteStoryNodeResponse
+    all_nodes: Dict[int, CompleteStoryNodeResponse]
+
     class Config:
-        from_attrbutes=True
-##53 minute 17
+        from_attributes = True
