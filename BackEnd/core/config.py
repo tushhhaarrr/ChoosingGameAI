@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     ALLOWED_ORIGINS: str = ""
 
-    OPENAI_API_KEY: str
+    GOOGLE_API_KEY: str
 
     def __init__(self, **values):
         super().__init__(**values)
