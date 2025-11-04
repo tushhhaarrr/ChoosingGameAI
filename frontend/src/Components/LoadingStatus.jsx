@@ -1,7 +1,7 @@
 function loadingstatus({theme}){
 return <div className="Loading-container">
 
-<h2>Generating Your Theme {theme} story</h2>
+<h2>Generating Your {theme} story</h2>
 <div className="Loading-animation">
 <div className="spinner"></div>
 </div>
@@ -9,6 +9,8 @@ return <div className="Loading-container">
     Please wait while we generate Your Story........
 </p>
 
+
 </div> 
 
 }
+export default loadingstatus; 

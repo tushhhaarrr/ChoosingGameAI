@@ -9,7 +9,7 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = None
 
-    ALLOWED_ORIGINS: str = ""
+    ALLOWED_ORIGINS: str = "*"
 
     GOOGLE_API_KEY: str
 
