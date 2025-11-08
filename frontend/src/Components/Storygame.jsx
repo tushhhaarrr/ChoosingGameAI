@@ -2,8 +2,8 @@ import { useState,useEffect } from "react";
 
 function StoryGame({story,onNewStory}) {
 
-    const[currentNodeId,setCurrentId]=useState(null);
-    const[currentNode,setCurrentNodeId]=useState(null)
+    const[currentNodeId,setCurrentNodeId]=useState(null);
+    const[currentNode,setcurrentNode]=useState(null)
     const[options,setOptions]=useState([])
     const[isEnding,setIsEnding]=useState(false)
     const[isWinninEnding,setisWinningEnding]=useState(false)
@@ -42,7 +42,8 @@ const chooseoption=(optionId)=>
 
 }
 const restartStory=()=>{
-    if(story &&story.root_Node.id){
+    if(story &&story.root_node){
+        setCurrentNodeId(story.root_node.Id)
 
     }
     }
@@ -63,7 +64,7 @@ const restartStory=()=>{
           <div className="story-options">
             <h3>What will You Do?</h3>
             <div className="Options-list">
-                {options.map((Option,index)=>{
+                {options.map((options,index)=>{
                 return <button 
                 key={index}
                 onClick={()=>chooseoption(options.node_id)}

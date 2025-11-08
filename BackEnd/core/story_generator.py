@@ -20,9 +20,9 @@ class StoryGenerator:
         serviceurl = os.getenv("CHOREO_GOOGLEGENERATIVEAI_CONNECTION_SERVICEURL")
 
         if GOOGLE_API_KEY and serviceurl:
-            return ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", api_key=GOOGLE_API_KEY, base_url=serviceurl)
+            return ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=GOOGLE_API_KEY, base_url=serviceurl)
 
-        return ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest")
+        return ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
     @classmethod
     def generate_story(cls, db: Session, session_id: str, theme: str = "fantasy")-> Story:
