@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from core.config import settings
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
